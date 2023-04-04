@@ -14,7 +14,7 @@ services:
     environment:
       WORDPRESS_DB_USER: yusuf
       WORDPRESS_DB_PASSWORD: yusuf_root
-      WORDPRESS_DB_HOST: db:3096
+      WORDPRESS_DB_HOST: db:3306
     # делает доступным сайт в браузере по url localhost:
     networks:
       - wpsite
