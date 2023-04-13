@@ -12,20 +12,8 @@ services:
       WORDPRESS_DB_HOST: db:3306
       WORDPRESS_DB_USER: yusuf
       WORDPRESS_DB_PASSWORD: yusuf_root
-
-  db:
-    image: mariadb:10
-    container_name: wpdb
-    volumes:
-      - db_data:/var/lib/mysql
-    environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_USER: yusuf
-      MYSQL_PASSWORD: yusuf_root
-      MYSQL_DATABASE: wp
-    
     networks:
-      - wpsite+
+      - wpsite
 
   phpmyadmin:
     container_name: wppypmyadmin
@@ -42,6 +30,19 @@ services:
       
     networks:
       - wpsite
+   db:
+    image: mysql:5.7
+    container_name: wpdb
+    volumes:
+      - db_data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: yusuf
+      MYSQL_PASSWORD: yusuf_root
+      MYSQL_DATABASE: wp
+    
+    networks:
+      - wpsite+
      
 networks:
   wpsite:
