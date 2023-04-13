@@ -23,6 +23,9 @@ services:
       MYSQL_USER: yusuf
       MYSQL_PASSWORD: yusuf_root
       MYSQL_DATABASE: wp
+    
+    networks:
+      - wpsite+
 
   phpmyadmin:
     container_name: wppypmyadmin
@@ -36,6 +39,12 @@ services:
       PMA_HOST: db
       MYSQL_USER: yusuf1
       MYSQL_ROOT_PASSWORD: root
-
+      
+    networks:
+      - wpsite
+     
+networks:
+  wpsite:
 volumes:
-  db_data: {}
+  db_data:
+
