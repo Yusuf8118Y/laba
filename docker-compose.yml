@@ -31,8 +31,8 @@ services:
       - '8080:80'
     entrypoint:
       PMA_HOST: db
-      PMA_USER: yusuf
-      PMA_PASSWORD: yusuf_root
+      MYSQL_USER: yusuf1
+      MYSQL_ROOT_PASSWORD: root
 
 volumes:
   db_data: {}
