@@ -5,6 +5,9 @@ services:
   wordpress:
     container_name: wp
     image: wordpress:latest
+    depends_on:
+      - db
+    restart: always
     ports:
       - '8000:80'
     volumes:
