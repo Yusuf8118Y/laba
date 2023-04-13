@@ -2,13 +2,13 @@ version: '3.7'
 
 services:
 
-  wp:
+  wordpress:
     container_name: wp
-    image: wordpress:5.2
+    image: wordpress:latest
     ports:
-      - '80:80'
+      - '8000:80'
     volumes:
-      - './wp-data:/var/www/html'
+      - ./wp-data:/var/www/html
     entrypoint:
       WORDPRESS_DB_HOST: db:3306
       WORDPRESS_DB_USER: yusuf
@@ -19,7 +19,7 @@ services:
     image: mariadb:10
     container_name: wpdb
     volumes:
-      - 'db_data:/var/lib/mysql'
+      - db_data:/var/lib/mysql
     environment:
       MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
       MYSQL_USER: yusuf
